@@ -11,7 +11,7 @@ function myFunction() {
     document.getElementById("myP").innerHTML = "Я Тебя любою ";
     x.setAttribute("src", "images/red-heart_2764-fe0f.png");
     x.setAttribute("width", "304");
-    x.setAttribute("height", "228");
+    x.setAttribute("height", "230");
     x.setAttribute("alt", "The Pulpit Rock");
     x.style.display = "block";
     x.style.margin = "0 auto";
