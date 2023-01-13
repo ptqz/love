@@ -13,6 +13,8 @@ function myFunction() {
     x.setAttribute("width", "304");
     x.setAttribute("height", "228");
     x.setAttribute("alt", "The Pulpit Rock");
+    x.style.display = "block";
+    x.style.margin = "0 auto";
     document.getElementById("knapp").style.display = "none";
     document.body.appendChild(x);
   }
