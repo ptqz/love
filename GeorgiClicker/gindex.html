@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Georgi Clicker</title>
+  </head>
+  <body>
+
+    <h1 class="overskrift">Georgi Clicker</h1>
+
+    <img class="georgipic" src="images/Georgi1.png" id="clicker-image" onclick="incrementCounter()">
+    <p class="counter" id="counter">0</p>
+    <button class="button" id="upgrade-button" onclick="buyUpgrade()" disabled>Buy Grandma (100 clicks)</button>
+    <button class="button" id="upgrade-button" onclick="buyUpgrade2()" disabled>Buy Krisi (1000 clicks)</button>
+    <img class="grandma" src="images/2D274905391507-today-tech-grandmabetty-140317.png" id="upgrade-image" style="display:none">
+    <img class="Krisi" src="GeorgiClicker/images/Georgi1.png" id="upgrade-image2" style="display:none">
+    <link rel="stylesheet" href="style.css">
+    <script>
+      let counter = 0;
+      let clicksPerSecond = 0;
+      let upgradeCost = 100;
+
+      function incrementCounter() {
+        counter++;
+        document.getElementById("counter").innerHTML = counter;
+      }
+
+      function buyUpgrade() {
+        if (counter >= upgradeCost) {
+          counter -= upgradeCost;
+          clicksPerSecond++;
+          document.getElementById("counter").innerHTML = counter;
+          document.getElementById("upgrade-button").innerHTML = "Grandma bought (+1 click/s)";
+          document.getElementById("upgrade-button").disabled = true;
+          document.getElementById("upgrade-image").style.display = "block";
+          setInterval(autoIncrement, 1000);
+        } else {
+          alert("You need " + (upgradeCost - counter) + " more clicks to buy the upgrade");
+        }
+      }
+
+      function buyUpgrade2() {
+        if (counter >= upgradeCost) {
+          counter -= upgradeCost;
+          clicksPerSecond+10;
+          document.getElementById("counter").innerHTML = counter;
+          document.getElementById("upgrade-button2").innerHTML = "Krisi bought (+10 click/s)";
+          document.getElementById("upgrade-button2").disabled = true;
+          document.getElementById("upgrade-image").style.display = "block";
+          setInterval(autoIncrement, 10000);
+        } else {
+          alert("You need " + (upgradeCost - counter) + " more clicks to buy the upgrade");
+        }
+      }
+
+      
+      function autoIncrement() {
+        counter += clicksPerSecond;
+        document.getElementById("counter").innerHTML = counter;
+      }
+
+      // check if the user has enough clicks to buy the upgrade
+      setInterval(function() {
+        if (counter >= upgradeCost) {
+          document.getElementById("upgrade-button").disabled = false;
+        } else {
+          document.getElementById("upgrade-button").disabled = true;
+        }
+      }, 500);
+    </script>
+  </body>
+</html>
